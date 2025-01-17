@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from .sced import sced
 from .prepare_sced import prepare_sced
+from .sced import sced
 
 def pnd(data, dvar, pvar, decreasing=False, phases=("A", "B")):
     """
