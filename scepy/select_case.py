@@ -8,19 +8,6 @@ def select_case(scdf, *cases):
 
     Returns:
     - DataFrame: A filtered DataFrame containing only the specified cases.
-
-    Example:
-    from scepy import sced, variable_management
-
-    # Example DataFrame
-    data = sced(data={"values": [10, 15, 20, 25], 
-                      "mt": [1, 2, 3, 4], 
-                      "phase": ["A", "A", "B", "B"], 
-                      "case": ["Case1", "Case1", "Case2", "Case2"]}).df
-
-    # Select specific cases
-    filtered_data = variable_management.select_case(data, "Case1")
-    print(filtered_data)
     """
     # Check if any cases are provided
     if not cases:

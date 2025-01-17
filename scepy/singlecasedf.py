@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from io import BytesIO
 
-class sced:
+class SingleCaseData:
     def __init__(self, values=None, phase=None, case=None, B_start=None, mt=None, 
                  phase_design=None, phase_starts=None, name=None, dvar="values", 
                  pvar="phase", mvar="mt", data=None, **kwargs):
