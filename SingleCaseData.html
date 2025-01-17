@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create SingleCaseData Using a DataFrame &#8212; SCEPY (Single Case Experiment Python Analysis Package)</title>
+    <title>SingleCaseData Class Documentation &#8212; SCEPY (Single Case Experiment Python Analysis Package)</title>
   
   
   
@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'SingleCaseData';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Reading a CSV File" href="readdata.html" />
+    <link rel="next" title="Read Data file" href="readdata.html" />
     <link rel="prev" title="Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,24 +170,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Create SingleCaseData Using a DataFrame</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="readdata.html"><strong>1. Reading a CSV File</strong></a></li>
-
-
-
-
-
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SingleCaseData Class Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readdata.html">Read Data file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variablemanage.html">Variable Management Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="selectcases.html">Select Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="describe.html">Describe Function</a></li>
@@ -374,7 +358,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Create SingleCaseData Using a DataFrame</h1>
+    <h1>SingleCaseData Class Documentation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,15 +368,20 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Create SingleCaseData Using a DataFrame</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-using-b-start">Create SingleCaseData Using <code class="docutils literal notranslate"><span class="pre">B_start</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-phase-design">Create SingleCaseData with Phase Design</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-measurement-times">Create SingleCaseData with Measurement Times</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-dataset">Export the Dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-multiple-cases-into-a-long-dataframe">Combine Multiple Cases into a Long DataFrame</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functionality">Functionality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-usage">Examples of Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-singlecasedata-object-from-values-and-phases">Create a SingleCaseData Object from Values and Phases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-using-a-dataframe">Create SingleCaseData Using a DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-using-b-start">Create SingleCaseData Using <code class="docutils literal notranslate"><span class="pre">B_start</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-phase-design">Create SingleCaseData with Phase Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-measurement-times">Create SingleCaseData with Measurement Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-dataset">Export the Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-multiple-cases-into-a-long-dataframe">Combine Multiple Cases into a Long DataFrame</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -403,44 +392,48 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># SingleCaseData Class Documentation</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="singlecasedata-class-documentation">
+<h1>SingleCaseData Class Documentation<a class="headerlink" href="#singlecasedata-class-documentation" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">SingleCaseData</span></code> class from the <code class="docutils literal notranslate"><span class="pre">scepy</span></code> package is designed to handle single-case experimental data, providing a flexible structure for creating, managing, and analyzing datasets. It allows users to define variables, phases, measurement times, and other configurations tailored to single-case research designs.</p>
+<section id="functionality">
+<h2>Functionality<a class="headerlink" href="#functionality" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">SingleCaseData</span></code> class is responsible for:</p>
+<ul class="simple">
+<li><p>Organizing and structuring single-case data into a pandas DataFrame.</p></li>
+<li><p>Automatically creating and managing experimental phases (e.g., “A” and “B”).</p></li>
+<li><p>Supporting various ways to input data, such as raw lists, pandas DataFrames, or predefined experimental designs.</p></li>
+<li><p>Providing export functionality for datasets in different formats (e.g., CSV, HTML, Excel).</p></li>
+</ul>
+</section>
+<section id="key-parameters">
+<h2>Key Parameters<a class="headerlink" href="#key-parameters" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">values</span></code>: A list of dependent variable values (e.g., measurements or observations).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase</span></code>: A list indicating the experimental phase for each value (e.g., “A”, “B”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">case</span></code>: Identifier for the case or subject.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">B_start</span></code>: Specifies the starting index for phase “B”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mt</span></code>: Measurement times corresponding to each value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase_design</span></code>: A dictionary defining the number of measurements in each phase (e.g., <code class="docutils literal notranslate"><span class="pre">{&quot;A&quot;:</span> <span class="pre">3,</span> <span class="pre">&quot;B&quot;:</span> <span class="pre">5}</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase_starts</span></code>: A dictionary specifying the starting index for each phase (e.g., <code class="docutils literal notranslate"><span class="pre">{&quot;A&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;B&quot;:</span> <span class="pre">4}</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: A pandas DataFrame containing the dataset.</p></li>
+</ul>
+</section>
+<section id="examples-of-usage">
+<h2>Examples of Usage<a class="headerlink" href="#examples-of-usage" title="Link to this heading">#</a></h2>
+<section id="create-a-singlecasedata-object-from-values-and-phases">
+<h3>Create a SingleCaseData Object from Values and Phases<a class="headerlink" href="#create-a-singlecasedata-object-from-values-and-phases" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">SingleCaseData</span>
 
-The <span class="sb">`SingleCaseData`</span> class from the <span class="sb">`scepy`</span> package is designed to handle single-case experimental data, providing a flexible structure for creating, managing, and analyzing datasets. It allows users to define variables, phases, measurement times, and other configurations tailored to single-case research designs.
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">phases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
 
-<span class="gu">## Functionality</span>
-
-The <span class="sb">`SingleCaseData`</span> class is responsible for:
-<span class="k">-</span><span class="w"> </span>Organizing and structuring single-case data into a pandas DataFrame.
-<span class="k">-</span><span class="w"> </span>Automatically creating and managing experimental phases (e.g., &quot;A&quot; and &quot;B&quot;).
-<span class="k">-</span><span class="w"> </span>Supporting various ways to input data, such as raw lists, pandas DataFrames, or predefined experimental designs.
-<span class="k">-</span><span class="w"> </span>Providing export functionality for datasets in different formats (e.g., CSV, HTML, Excel).
-
-<span class="gu">## Key Parameters</span>
-
-<span class="k">-</span><span class="w"> </span><span class="sb">`values`</span>: A list of dependent variable values (e.g., measurements or observations).
-<span class="k">-</span><span class="w"> </span><span class="sb">`phase`</span>: A list indicating the experimental phase for each value (e.g., &quot;A&quot;, &quot;B&quot;).
-<span class="k">-</span><span class="w"> </span><span class="sb">`case`</span>: Identifier for the case or subject.
-<span class="k">-</span><span class="w"> </span><span class="sb">`B_start`</span>: Specifies the starting index for phase &quot;B&quot;.
-<span class="k">-</span><span class="w"> </span><span class="sb">`mt`</span>: Measurement times corresponding to each value.
-<span class="k">-</span><span class="w"> </span><span class="sb">`phase_design`</span>: A dictionary defining the number of measurements in each phase (e.g., <span class="sb">`{&quot;A&quot;: 3, &quot;B&quot;: 5}`</span>).
-<span class="k">-</span><span class="w"> </span><span class="sb">`phase_starts`</span>: A dictionary specifying the starting index for each phase (e.g., <span class="sb">`{&quot;A&quot;: 1, &quot;B&quot;: 4}`</span>).
-<span class="k">-</span><span class="w"> </span><span class="sb">`data`</span>: A pandas DataFrame containing the dataset.
-
-<span class="gu">## Examples of Usage</span>
-
-<span class="gu">### Create a SingleCaseData Object from Values and Phases</span>
-```python
-from scepy import SingleCaseData
-
-values = [10, 12, 15, 20, 25, 30]
-phases = [&quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;B&quot;]
-
-scd = SingleCaseData(values=values, phase=phases)
-print(scd.df)
+<span class="n">scd</span> <span class="o">=</span> <span class="n">SingleCaseData</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="n">phases</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scd</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
 <section id="create-singlecasedata-using-a-dataframe">
-<h1>Create SingleCaseData Using a DataFrame<a class="headerlink" href="#create-singlecasedata-using-a-dataframe" title="Link to this heading">#</a></h1>
+<h3>Create SingleCaseData Using a DataFrame<a class="headerlink" href="#create-singlecasedata-using-a-dataframe" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">SingleCaseData</span>
 
@@ -455,7 +448,7 @@ print(scd.df)
 </div>
 </section>
 <section id="create-singlecasedata-using-b-start">
-<h1>Create SingleCaseData Using <code class="docutils literal notranslate"><span class="pre">B_start</span></code><a class="headerlink" href="#create-singlecasedata-using-b-start" title="Link to this heading">#</a></h1>
+<h3>Create SingleCaseData Using <code class="docutils literal notranslate"><span class="pre">B_start</span></code><a class="headerlink" href="#create-singlecasedata-using-b-start" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">SingleCaseData</span>
 
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
@@ -467,7 +460,7 @@ print(scd.df)
 </div>
 </section>
 <section id="create-singlecasedata-with-phase-design">
-<h1>Create SingleCaseData with Phase Design<a class="headerlink" href="#create-singlecasedata-with-phase-design" title="Link to this heading">#</a></h1>
+<h3>Create SingleCaseData with Phase Design<a class="headerlink" href="#create-singlecasedata-with-phase-design" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">SingleCaseData</span>
 
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
@@ -479,7 +472,7 @@ print(scd.df)
 </div>
 </section>
 <section id="create-singlecasedata-with-measurement-times">
-<h1>Create SingleCaseData with Measurement Times<a class="headerlink" href="#create-singlecasedata-with-measurement-times" title="Link to this heading">#</a></h1>
+<h3>Create SingleCaseData with Measurement Times<a class="headerlink" href="#create-singlecasedata-with-measurement-times" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">SingleCaseData</span>
 
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
@@ -492,7 +485,7 @@ print(scd.df)
 </div>
 </section>
 <section id="export-the-dataset">
-<h1>Export the Dataset<a class="headerlink" href="#export-the-dataset" title="Link to this heading">#</a></h1>
+<h3>Export the Dataset<a class="headerlink" href="#export-the-dataset" title="Link to this heading">#</a></h3>
 <p>You can export the dataset to different formats like HTML, CSV, or Excel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Export as HTML</span>
 <span class="n">html_content</span> <span class="o">=</span> <span class="n">scd</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">)</span>
@@ -506,7 +499,7 @@ print(scd.df)
 </div>
 </section>
 <section id="combine-multiple-cases-into-a-long-dataframe">
-<h1>Combine Multiple Cases into a Long DataFrame<a class="headerlink" href="#combine-multiple-cases-into-a-long-dataframe" title="Link to this heading">#</a></h1>
+<h3>Combine Multiple Cases into a Long DataFrame<a class="headerlink" href="#combine-multiple-cases-into-a-long-dataframe" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">SingleCaseData</span>
 
 <span class="n">case1</span> <span class="o">=</span> <span class="n">SingleCaseData</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">phase</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Case1&quot;</span><span class="p">)</span>
@@ -517,12 +510,14 @@ print(scd.df)
 </pre></div>
 </div>
 </section>
+</section>
 <section id="notes">
-<h1>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h1>
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">SingleCaseData</span></code> class is highly flexible and can handle missing parameters or infer defaults when necessary.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">phase_design</span></code> or <code class="docutils literal notranslate"><span class="pre">B_start</span></code> for automatically splitting phases without manually specifying them.</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -569,7 +564,7 @@ print(scd.df)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>1. Reading a CSV File</strong></p>
+        <p class="prev-next-title">Read Data file</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -590,15 +585,20 @@ print(scd.df)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Create SingleCaseData Using a DataFrame</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-using-b-start">Create SingleCaseData Using <code class="docutils literal notranslate"><span class="pre">B_start</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-phase-design">Create SingleCaseData with Phase Design</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-measurement-times">Create SingleCaseData with Measurement Times</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-dataset">Export the Dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-multiple-cases-into-a-long-dataframe">Combine Multiple Cases into a Long DataFrame</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functionality">Functionality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-usage">Examples of Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-singlecasedata-object-from-values-and-phases">Create a SingleCaseData Object from Values and Phases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-using-a-dataframe">Create SingleCaseData Using a DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-using-b-start">Create SingleCaseData Using <code class="docutils literal notranslate"><span class="pre">B_start</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-phase-design">Create SingleCaseData with Phase Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-singlecasedata-with-measurement-times">Create SingleCaseData with Measurement Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-the-dataset">Export the Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-multiple-cases-into-a-long-dataframe">Combine Multiple Cases into a Long DataFrame</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
   </nav></div>
 
 </div></div>

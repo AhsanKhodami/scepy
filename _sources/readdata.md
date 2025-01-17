@@ -1,6 +1,7 @@
-Here are all possible ways to use the `readdata` function based on the provided code:
+# Read Data file
 
-### **1. Reading a CSV File**
+
+## **1. Reading a CSV File**
 The `readdata` function can read data from a CSV file.
 
 ```python
