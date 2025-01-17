@@ -4,7 +4,7 @@ SCEPY: Single-Case Experiment Python Package
 
 from .combined import *
 from .pnd import *
-from .prepared_sced import *
+from .prepare_sced import *
 from .readdata import *
 from .sced import *
 from .select_case import *
