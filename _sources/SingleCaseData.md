@@ -1,3 +1,4 @@
+
 # SingleCaseData Class Documentation
 
 The `SingleCaseData` class from the `scepy` package is designed to handle single-case experimental data, providing a flexible structure for creating, managing, and analyzing datasets. It allows users to define variables, phases, measurement times, and other configurations tailored to single-case research designs.
