@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>variable management &#8212; SCEPY (Single Case Experiment Python Analysis Package)</title>
+    <title>Variable Management Functions &#8212; SCEPY (Single Case Experiment Python Analysis Package)</title>
   
   
   
@@ -63,8 +63,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'variablemanage';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="select_case Function" href="select_case.html" />
-    <link rel="prev" title="Reading Data Function" href="readdata.html" />
+    <link rel="next" title="Select Cases" href="selectcases.html" />
+    <link rel="prev" title="1. Reading a CSV File" href="readdata.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -164,17 +164,34 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    About SCEPY
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sced.html">SCED (Single Case Experiment Data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readdata.html">Reading Data Function</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">variable management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="select_case.html">select_case Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SingleCaseData.html">Create SingleCaseData Using a DataFrame</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="readdata.html"><strong>1. Reading a CSV File</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variable Management Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selectcases.html">Select Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe.html">Describe Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataprocessing.html">Fill Missing Function</a></li>
 </ul>
 
     </div>
@@ -357,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>variable management</h1>
+    <h1>Variable Management Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,39 +384,35 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-overview">Functions Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-vars"><strong>1. <code class="docutils literal notranslate"><span class="pre">set_vars</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-vars"><code class="docutils literal notranslate"><span class="pre">set_vars</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-dvar"><strong>2. <code class="docutils literal notranslate"><span class="pre">set_dvar</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-dvar"><code class="docutils literal notranslate"><span class="pre">set_dvar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-mvar"><strong>3. <code class="docutils literal notranslate"><span class="pre">set_mvar</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-mvar"><code class="docutils literal notranslate"><span class="pre">set_mvar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-pvar"><strong>4. <code class="docutils literal notranslate"><span class="pre">set_pvar</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Example:</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-pvar"><code class="docutils literal notranslate"><span class="pre">set_pvar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Example</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-scepy">Integration with SCEPY</a></li>
 </ul>
             </nav>
         </div>
@@ -411,177 +424,190 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="variable-management">
-<h1>variable management<a class="headerlink" href="#variable-management" title="Link to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">variable_management</span></code> module in the SCEPY package provides utility functions to update and manage variable names in single-case experimental data frames (<code class="docutils literal notranslate"><span class="pre">scdf</span></code>). These functions allow users to rename key variables like dependent variable (<code class="docutils literal notranslate"><span class="pre">dvar</span></code>), measurement-time variable (<code class="docutils literal notranslate"><span class="pre">mvar</span></code>), and phase variable (<code class="docutils literal notranslate"><span class="pre">pvar</span></code>) to suit their analysis needs.</p>
-<section id="functions-overview">
-<h2>Functions Overview<a class="headerlink" href="#functions-overview" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="variable-management-functions">
+<h1>Variable Management Functions<a class="headerlink" href="#variable-management-functions" title="Link to this heading">#</a></h1>
+<p>The functions in <code class="docutils literal notranslate"><span class="pre">variable_management.py</span></code> allow users to update variable names in single-case experimental data frames. These utilities ensure consistent naming for dependent variables, measurement time, and phase variables, making data preparation and analysis more straightforward.</p>
+<hr class="docutils" />
 <section id="set-vars">
-<h3><strong>1. <code class="docutils literal notranslate"><span class="pre">set_vars</span></code></strong><a class="headerlink" href="#set-vars" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_vars</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="p">,</span> <span class="n">mvar</span><span class="p">,</span> <span class="n">pvar</span><span class="p">)</span>
-</pre></div>
-</div>
+<h2><code class="docutils literal notranslate"><span class="pre">set_vars</span></code><a class="headerlink" href="#set-vars" title="Link to this heading">#</a></h2>
 <section id="description">
-<h4>Description:<a class="headerlink" href="#description" title="Link to this heading">#</a></h4>
-<p>Sets the analysis variables (<code class="docutils literal notranslate"><span class="pre">dvar</span></code>, <code class="docutils literal notranslate"><span class="pre">mvar</span></code>, <code class="docutils literal notranslate"><span class="pre">pvar</span></code>) in a single-case data frame.</p>
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_vars</span></code> function updates the variable names in a single-case data frame (<code class="docutils literal notranslate"><span class="pre">scdf</span></code>). It renames the <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">mt</span></code>, and <code class="docutils literal notranslate"><span class="pre">phase</span></code> columns to the specified dependent variable (<code class="docutils literal notranslate"><span class="pre">dvar</span></code>), measurement time (<code class="docutils literal notranslate"><span class="pre">mvar</span></code>), and phase variable (<code class="docutils literal notranslate"><span class="pre">pvar</span></code>), respectively.</p>
 </section>
 <section id="parameters">
-<h4>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h4>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>): A single-case data frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dvar</span></code> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of the dependent variable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mvar</span></code> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of the measurement-time variable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pvar</span></code> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of the phase variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (DataFrame): A pandas DataFrame containing single-case data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dvar</span></code> (str): The name of the dependent variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mvar</span></code> (str): The name of the measurement-time variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pvar</span></code> (str): The name of the phase variable.</p></li>
 </ul>
 </section>
 <section id="returns">
-<h4>Returns:<a class="headerlink" href="#returns" title="Link to this heading">#</a></h4>
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: The updated data frame with the specified variable names.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: A new DataFrame with updated column names.</p></li>
 </ul>
 </section>
 <section id="example">
-<h4>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">sced</span><span class="p">,</span> <span class="n">variable_management</span>
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scepy.variable_management</span> <span class="kn">import</span> <span class="n">set_vars</span>
 
-<span class="c1"># Original data frame</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">sced</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]})</span><span class="o">.</span><span class="n">df</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
+<span class="p">})</span>
 
-<span class="c1"># Update variable names</span>
-<span class="n">updated_data</span> <span class="o">=</span> <span class="n">variable_management</span><span class="o">.</span><span class="n">set_vars</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="o">=</span><span class="s2">&quot;observations&quot;</span><span class="p">,</span> <span class="n">mvar</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">pvar</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span>
+<span class="n">updated_data</span> <span class="o">=</span> <span class="n">set_vars</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="o">=</span><span class="s2">&quot;measurements&quot;</span><span class="p">,</span> <span class="n">mvar</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">pvar</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">updated_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Output:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">observations</span>  <span class="n">time</span> <span class="n">condition</span>
-<span class="mi">0</span>            <span class="mi">10</span>     <span class="mi">1</span>        <span class="n">A</span>
-<span class="mi">1</span>            <span class="mi">15</span>     <span class="mi">2</span>        <span class="n">A</span>
-<span class="mi">2</span>            <span class="mi">20</span>     <span class="mi">3</span>        <span class="n">B</span>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">measurements</span>  <span class="n">time</span> <span class="n">stage</span>
+<span class="mi">0</span>            <span class="mi">10</span>     <span class="mi">1</span>     <span class="n">A</span>
+<span class="mi">1</span>            <span class="mi">15</span>     <span class="mi">2</span>     <span class="n">A</span>
+<span class="mi">2</span>            <span class="mi">20</span>     <span class="mi">3</span>     <span class="n">B</span>
 </pre></div>
 </div>
 </section>
 </section>
+<hr class="docutils" />
 <section id="set-dvar">
-<h3><strong>2. <code class="docutils literal notranslate"><span class="pre">set_dvar</span></code></strong><a class="headerlink" href="#set-dvar" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_dvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="p">)</span>
-</pre></div>
-</div>
+<h2><code class="docutils literal notranslate"><span class="pre">set_dvar</span></code><a class="headerlink" href="#set-dvar" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h4>Description:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
-<p>Updates the dependent variable name in the data frame.</p>
+<h3>Description<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_dvar</span></code> function updates the name of the dependent variable (<code class="docutils literal notranslate"><span class="pre">dvar</span></code>) in a single-case data frame.</p>
 </section>
 <section id="id2">
-<h4>Parameters:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>): A single-case data frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dvar</span></code> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): The new name for the dependent variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (DataFrame): A pandas DataFrame containing single-case data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dvar</span></code> (str): The name of the dependent variable.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h4>Returns:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<h3>Returns<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: The updated data frame with the specified dependent variable name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: A new DataFrame with the updated dependent variable name.</p></li>
 </ul>
 </section>
 <section id="id4">
-<h4>Example:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">updated_data</span> <span class="o">=</span> <span class="n">variable_management</span><span class="o">.</span><span class="n">set_dvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="o">=</span><span class="s2">&quot;observations&quot;</span><span class="p">)</span>
+<h3>Example<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy.variable_management</span> <span class="kn">import</span> <span class="n">set_dvar</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">updated_data</span> <span class="o">=</span> <span class="n">set_dvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="o">=</span><span class="s2">&quot;measurements&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">updated_data</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="set-mvar">
-<h3><strong>3. <code class="docutils literal notranslate"><span class="pre">set_mvar</span></code></strong><a class="headerlink" href="#set-mvar" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_mvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mvar</span><span class="p">)</span>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">measurements</span>  <span class="n">mt</span> <span class="n">phase</span>
+<span class="mi">0</span>            <span class="mi">10</span>   <span class="mi">1</span>     <span class="n">A</span>
+<span class="mi">1</span>            <span class="mi">15</span>   <span class="mi">2</span>     <span class="n">A</span>
+<span class="mi">2</span>            <span class="mi">20</span>   <span class="mi">3</span>     <span class="n">B</span>
 </pre></div>
 </div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="set-mvar">
+<h2><code class="docutils literal notranslate"><span class="pre">set_mvar</span></code><a class="headerlink" href="#set-mvar" title="Link to this heading">#</a></h2>
 <section id="id5">
-<h4>Description:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
-<p>Updates the measurement-time variable name in the data frame.</p>
+<h3>Description<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_mvar</span></code> function updates the name of the measurement-time variable (<code class="docutils literal notranslate"><span class="pre">mvar</span></code>) in a single-case data frame.</p>
 </section>
 <section id="id6">
-<h4>Parameters:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<h3>Parameters<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>): A single-case data frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mvar</span></code> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): The new name for the measurement-time variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (DataFrame): A pandas DataFrame containing single-case data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mvar</span></code> (str): The name of the measurement-time variable.</p></li>
 </ul>
 </section>
 <section id="id7">
-<h4>Returns:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<h3>Returns<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: The updated data frame with the specified measurement-time variable name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: A new DataFrame with the updated measurement-time variable name.</p></li>
 </ul>
 </section>
 <section id="id8">
-<h4>Example:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">updated_data</span> <span class="o">=</span> <span class="n">variable_management</span><span class="o">.</span><span class="n">set_mvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mvar</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<h3>Example<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy.variable_management</span> <span class="kn">import</span> <span class="n">set_mvar</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">updated_data</span> <span class="o">=</span> <span class="n">set_mvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mvar</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">updated_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">values</span>  <span class="n">time</span> <span class="n">phase</span>
+<span class="mi">0</span>      <span class="mi">10</span>     <span class="mi">1</span>     <span class="n">A</span>
+<span class="mi">1</span>      <span class="mi">15</span>     <span class="mi">2</span>     <span class="n">A</span>
+<span class="mi">2</span>      <span class="mi">20</span>     <span class="mi">3</span>     <span class="n">B</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="set-pvar">
-<h3><strong>4. <code class="docutils literal notranslate"><span class="pre">set_pvar</span></code></strong><a class="headerlink" href="#set-pvar" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_pvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pvar</span><span class="p">)</span>
-</pre></div>
-</div>
+<h2><code class="docutils literal notranslate"><span class="pre">set_pvar</span></code><a class="headerlink" href="#set-pvar" title="Link to this heading">#</a></h2>
 <section id="id9">
-<h4>Description:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
-<p>Updates the phase variable name in the data frame.</p>
+<h3>Description<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_pvar</span></code> function updates the name of the phase variable (<code class="docutils literal notranslate"><span class="pre">pvar</span></code>) in a single-case data frame.</p>
 </section>
 <section id="id10">
-<h4>Parameters:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<h3>Parameters<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>): A single-case data frame.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pvar</span></code> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): The new name for the phase variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (DataFrame): A pandas DataFrame containing single-case data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pvar</span></code> (str): The name of the phase variable.</p></li>
 </ul>
 </section>
 <section id="id11">
-<h4>Returns:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<h3>Returns<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: The updated data frame with the specified phase variable name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: A new DataFrame with the updated phase variable name.</p></li>
 </ul>
 </section>
 <section id="id12">
-<h4>Example:<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">updated_data</span> <span class="o">=</span> <span class="n">variable_management</span><span class="o">.</span><span class="n">set_pvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pvar</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span>
+<h3>Example<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy.variable_management</span> <span class="kn">import</span> <span class="n">set_pvar</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">updated_data</span> <span class="o">=</span> <span class="n">set_pvar</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pvar</span><span class="o">=</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">updated_data</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">values</span>  <span class="n">mt</span> <span class="n">stage</span>
+<span class="mi">0</span>      <span class="mi">10</span>   <span class="mi">1</span>     <span class="n">A</span>
+<span class="mi">1</span>      <span class="mi">15</span>   <span class="mi">2</span>     <span class="n">A</span>
+<span class="mi">2</span>      <span class="mi">20</span>   <span class="mi">3</span>     <span class="n">B</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The original column names (<code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">mt</span></code>, <code class="docutils literal notranslate"><span class="pre">phase</span></code>) are replaced by the specified names.</p></li>
-<li><p>Use these utilities to align your data frame’s variable names with your analysis or reporting requirements.</p></li>
+<li><p>All functions create a copy of the input DataFrame and return a modified version, leaving the original DataFrame unchanged.</p></li>
+<li><p>Column names are updated only if they match <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">mt</span></code>, or <code class="docutils literal notranslate"><span class="pre">phase</span></code>. If the DataFrame does not contain these columns, no changes will be made.</p></li>
+<li><p>These functions streamline the process of renaming columns in single-case experimental datasets, ensuring consistency across analyses.</p></li>
 </ul>
-</section>
-<section id="integration-with-scepy">
-<h2>Integration with SCEPY<a class="headerlink" href="#integration-with-scepy" title="Link to this heading">#</a></h2>
-<p>This module integrates smoothly with the rest of the SCEPY package. For example, when creating a <code class="docutils literal notranslate"><span class="pre">sced</span></code> instance, you can directly use the updated data frame:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">sced</span><span class="p">,</span> <span class="n">variable_management</span>
-
-<span class="c1"># Original data frame</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">sced</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]})</span><span class="o">.</span><span class="n">df</span>
-
-<span class="c1"># Update variable names</span>
-<span class="n">updated_data</span> <span class="o">=</span> <span class="n">variable_management</span><span class="o">.</span><span class="n">set_vars</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dvar</span><span class="o">=</span><span class="s2">&quot;observations&quot;</span><span class="p">,</span> <span class="n">mvar</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">pvar</span><span class="o">=</span><span class="s2">&quot;condition&quot;</span><span class="p">)</span>
-
-<span class="c1"># Use the updated data in a new sced instance</span>
-<span class="n">updated_case</span> <span class="o">=</span> <span class="n">sced</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">updated_data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">updated_case</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><strong>Output:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">observations</span>  <span class="n">time</span> <span class="n">condition</span>
-<span class="mi">0</span>            <span class="mi">10</span>     <span class="mi">1</span>        <span class="n">A</span>
-<span class="mi">1</span>            <span class="mi">15</span>     <span class="mi">2</span>        <span class="n">A</span>
-<span class="mi">2</span>            <span class="mi">20</span>     <span class="mi">3</span>        <span class="n">B</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -621,15 +647,15 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Reading Data Function</p>
+        <p class="prev-next-title"><strong>1. Reading a CSV File</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="select_case.html"
+       href="selectcases.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">select_case Function</p>
+        <p class="prev-next-title">Select Cases</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -650,39 +676,35 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-overview">Functions Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-vars"><strong>1. <code class="docutils literal notranslate"><span class="pre">set_vars</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-vars"><code class="docutils literal notranslate"><span class="pre">set_vars</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-dvar"><strong>2. <code class="docutils literal notranslate"><span class="pre">set_dvar</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-dvar"><code class="docutils literal notranslate"><span class="pre">set_dvar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-mvar"><strong>3. <code class="docutils literal notranslate"><span class="pre">set_mvar</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-mvar"><code class="docutils literal notranslate"><span class="pre">set_mvar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Example</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-pvar"><strong>4. <code class="docutils literal notranslate"><span class="pre">set_pvar</span></code></strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Parameters:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Returns:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Example:</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-pvar"><code class="docutils literal notranslate"><span class="pre">set_pvar</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Example</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-with-scepy">Integration with SCEPY</a></li>
 </ul>
   </nav></div>
 

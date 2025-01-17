@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>select_case Function &#8212; SCEPY (Single Case Experiment Python Analysis Package)</title>
+    <title>Select Cases &#8212; SCEPY (Single Case Experiment Python Analysis Package)</title>
   
   
   
@@ -60,10 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'select_case';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'selectcases';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="variable management" href="variablemanage.html" />
+    <link rel="next" title="Describe Function" href="describe.html" />
+    <link rel="prev" title="Variable Management Functions" href="variablemanage.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -163,17 +164,34 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    About SCEPY
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sced.html">SCED (Single Case Experiment Data)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readdata.html">Reading Data Function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variablemanage.html">variable management</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">select_case Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SingleCaseData.html">Create SingleCaseData Using a DataFrame</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="readdata.html"><strong>1. Reading a CSV File</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="variablemanage.html">Variable Management Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Select Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="describe.html">Describe Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataprocessing.html">Fill Missing Function</a></li>
 </ul>
 
     </div>
@@ -250,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/AhsanKhodami/scepy/issues/new?title=Issue%20on%20page%20%2Fselect_case.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/AhsanKhodami/scepy/issues/new?title=Issue%20on%20page%20%2Fselectcases.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -280,7 +298,7 @@
       
       
       
-      <li><a href="_sources/select_case.md" target="_blank"
+      <li><a href="_sources/selectcases.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -356,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>select_case Function</h1>
+    <h1>Select Cases</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,17 +385,19 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overview">Function Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><strong>Description</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters"><strong>Parameters</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returns"><strong>Returns</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raises"><strong>Raises</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-usage">Example Usage</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-single-case"><strong>Filter Single Case</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-multiple-cases"><strong>Filter Multiple Cases</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-select-a-single-case">Example 1: Select a Single Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-select-multiple-cases">Example 2: Select Multiple Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-handle-missing-case-names">Example 3: Handle Missing Case Names</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-case-sensitivity">Example 4: Case Sensitivity</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
             </nav>
         </div>
@@ -389,127 +409,113 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="select-case-function">
-<h1>select_case Function<a class="headerlink" href="#select-case-function" title="Link to this heading">#</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">select_case</span></code> function is an independent utility in the SCEPY package. It allows users to filter specific cases from a single-case experimental data frame (<code class="docutils literal notranslate"><span class="pre">scdf</span></code>). This function is particularly useful when analyzing subsets of multi-case data.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="select-cases">
+<h1>Select Cases<a class="headerlink" href="#select-cases" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">select_case</span></code> is a function designed to filter a single-case data frame (<code class="docutils literal notranslate"><span class="pre">scdf</span></code>) by selecting specific cases. It helps users focus on a subset of their data by isolating rows that match the specified case names. This is particularly useful in single-case experimental designs where data is often grouped by case identifiers.</p>
 <section id="function-overview">
 <h2>Function Overview<a class="headerlink" href="#function-overview" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">select_case</span><span class="p">(</span><span class="n">scdf</span><span class="p">,</span> <span class="o">*</span><span class="n">cases</span><span class="p">)</span>
-</pre></div>
-</div>
-<section id="description">
-<h3><strong>Description</strong><a class="headerlink" href="#description" title="Link to this heading">#</a></h3>
-<p>Filters and returns the rows in the data frame corresponding to the specified case names.</p>
-</section>
 <section id="parameters">
-<h3><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">scdf</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></td>
-<td><p>The data frame containing single-case data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*cases</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
-<td><p>One or more case names to select from the data frame.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scdf</span></code> (DataFrame): A pandas DataFrame containing single-case experimental data. It must include a column named <code class="docutils literal notranslate"><span class="pre">case</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*cases</span></code> (str): One or more case names to be selected from the <code class="docutils literal notranslate"><span class="pre">scdf</span></code>.</p></li>
+</ul>
 </section>
 <section id="returns">
-<h3><strong>Returns</strong><a class="headerlink" href="#returns" title="Link to this heading">#</a></h3>
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: A filtered data frame containing only the rows for the specified cases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: A filtered pandas DataFrame containing only the rows for the specified cases.</p></li>
 </ul>
 </section>
-<section id="raises">
-<h3><strong>Raises</strong><a class="headerlink" href="#raises" title="Link to this heading">#</a></h3>
+<section id="behavior">
+<h3>Behavior<a class="headerlink" href="#behavior" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ValueError</span></code>: If no case names are provided.</p></li>
+<li><p>If no case names are provided, the function raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+<li><p>The filtering is case-sensitive, so the specified case names must match the <code class="docutils literal notranslate"><span class="pre">case</span></code> column exactly.</p></li>
 </ul>
 </section>
 </section>
-<section id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading">#</a></h2>
-<section id="filter-single-case">
-<h3><strong>Filter Single Case</strong><a class="headerlink" href="#filter-single-case" title="Link to this heading">#</a></h3>
-<p>Suppose you have a data frame with multiple cases:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>values</p></th>
-<th class="head"><p>mt</p></th>
-<th class="head"><p>phase</p></th>
-<th class="head"><p>case</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>10</p></td>
-<td><p>1</p></td>
-<td><p>A</p></td>
-<td><p>Case1</p></td>
-</tr>
-<tr class="row-odd"><td><p>15</p></td>
-<td><p>2</p></td>
-<td><p>A</p></td>
-<td><p>Case1</p></td>
-</tr>
-<tr class="row-even"><td><p>20</p></td>
-<td><p>3</p></td>
-<td><p>B</p></td>
-<td><p>Case2</p></td>
-</tr>
-<tr class="row-odd"><td><p>25</p></td>
-<td><p>4</p></td>
-<td><p>B</p></td>
-<td><p>Case2</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>You can filter a specific case as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">sced</span><span class="p">,</span> <span class="n">select_case</span>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="example-1-select-a-single-case">
+<h3>Example 1: Select a Single Case<a class="headerlink" href="#example-1-select-a-single-case" title="Link to this heading">#</a></h3>
+<p>This example demonstrates how to select data for a single case.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scepy</span> <span class="kn">import</span> <span class="n">select_case</span>
 
-<span class="c1"># Example data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">sced</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> 
-                  <span class="s2">&quot;mt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
-                  <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> 
-                  <span class="s2">&quot;case&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Case1&quot;</span><span class="p">,</span> <span class="s2">&quot;Case1&quot;</span><span class="p">,</span> <span class="s2">&quot;Case2&quot;</span><span class="p">,</span> <span class="s2">&quot;Case2&quot;</span><span class="p">]})</span><span class="o">.</span><span class="n">df</span>
+<span class="c1"># Example single-case DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;case&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Case1&quot;</span><span class="p">,</span> <span class="s2">&quot;Case1&quot;</span><span class="p">,</span> <span class="s2">&quot;Case2&quot;</span><span class="p">,</span> <span class="s2">&quot;Case3&quot;</span><span class="p">,</span> <span class="s2">&quot;Case3&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="p">})</span>
 
-<span class="c1"># Select &quot;Case1&quot;</span>
+<span class="c1"># Select a single case</span>
 <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">select_case</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Case1&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Output:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">values</span>  <span class="n">mt</span> <span class="n">phase</span>   <span class="n">case</span>
-<span class="mi">0</span>      <span class="mi">10</span>   <span class="mi">1</span>     <span class="n">A</span>  <span class="n">Case1</span>
-<span class="mi">1</span>      <span class="mi">15</span>   <span class="mi">2</span>     <span class="n">A</span>  <span class="n">Case1</span>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">case</span> <span class="n">phase</span>  <span class="n">values</span>
+<span class="mi">0</span>  <span class="n">Case1</span>     <span class="n">A</span>      <span class="mi">10</span>
+<span class="mi">1</span>  <span class="n">Case1</span>     <span class="n">B</span>      <span class="mi">12</span>
 </pre></div>
 </div>
 </section>
-<section id="filter-multiple-cases">
-<h3><strong>Filter Multiple Cases</strong><a class="headerlink" href="#filter-multiple-cases" title="Link to this heading">#</a></h3>
-<p>You can also filter multiple cases:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">select_case</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Case1&quot;</span><span class="p">,</span> <span class="s2">&quot;Case2&quot;</span><span class="p">)</span>
+<section id="example-2-select-multiple-cases">
+<h3>Example 2: Select Multiple Cases<a class="headerlink" href="#example-2-select-multiple-cases" title="Link to this heading">#</a></h3>
+<p>You can select multiple cases by passing their names as additional arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select multiple cases</span>
+<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">select_case</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Case1&quot;</span><span class="p">,</span> <span class="s2">&quot;Case3&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Output:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">values</span>  <span class="n">mt</span> <span class="n">phase</span>   <span class="n">case</span>
-<span class="mi">0</span>      <span class="mi">10</span>   <span class="mi">1</span>     <span class="n">A</span>  <span class="n">Case1</span>
-<span class="mi">1</span>      <span class="mi">15</span>   <span class="mi">2</span>     <span class="n">A</span>  <span class="n">Case1</span>
-<span class="mi">2</span>      <span class="mi">20</span>   <span class="mi">3</span>     <span class="n">B</span>  <span class="n">Case2</span>
-<span class="mi">3</span>      <span class="mi">25</span>   <span class="mi">4</span>     <span class="n">B</span>  <span class="n">Case2</span>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">case</span> <span class="n">phase</span>  <span class="n">values</span>
+<span class="mi">0</span>  <span class="n">Case1</span>     <span class="n">A</span>      <span class="mi">10</span>
+<span class="mi">1</span>  <span class="n">Case1</span>     <span class="n">B</span>      <span class="mi">12</span>
+<span class="mi">3</span>  <span class="n">Case3</span>     <span class="n">A</span>      <span class="mi">20</span>
+<span class="mi">4</span>  <span class="n">Case3</span>     <span class="n">B</span>      <span class="mi">25</span>
 </pre></div>
 </div>
 </section>
+<section id="example-3-handle-missing-case-names">
+<h3>Example 3: Handle Missing Case Names<a class="headerlink" href="#example-3-handle-missing-case-names" title="Link to this heading">#</a></h3>
+<p>If no case names are provided, the function raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> to notify the user.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">select_case</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">specify</span> <span class="n">at</span> <span class="n">least</span> <span class="n">one</span> <span class="n">case</span> <span class="n">to</span> <span class="n">select</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="example-4-case-sensitivity">
+<h3>Example 4: Case Sensitivity<a class="headerlink" href="#example-4-case-sensitivity" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">select_case</span></code> function is case-sensitive. If the case name does not match exactly, it will not return any data for that case.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Attempt to select a case with incorrect capitalization</span>
+<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">select_case</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;case1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Empty</span> <span class="n">DataFrame</span>
+<span class="n">Columns</span><span class="p">:</span> <span class="p">[</span><span class="n">case</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">values</span><span class="p">]</span>
+<span class="n">Index</span><span class="p">:</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">scdf</span></code> DataFrame contains a <code class="docutils literal notranslate"><span class="pre">case</span></code> column; otherwise, a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> will be raised.</p></li>
+<li><p>Pass case names as separate arguments, such as <code class="docutils literal notranslate"><span class="pre">&quot;Case1&quot;,</span> <span class="pre">&quot;Case2&quot;</span></code>. Lists or other collection types are not supported.</p></li>
+<li><p>This function is a utility for filtering and isolating specific cases, making it ideal for single-case experimental data analysis.</p></li>
+</ul>
 </section>
 </section>
 
@@ -549,8 +555,17 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">variable management</p>
+        <p class="prev-next-title">Variable Management Functions</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="describe.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Describe Function</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -570,17 +585,19 @@
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overview">Function Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description"><strong>Description</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters"><strong>Parameters</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returns"><strong>Returns</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raises"><strong>Raises</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behavior">Behavior</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-usage">Example Usage</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-single-case"><strong>Filter Single Case</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-multiple-cases"><strong>Filter Multiple Cases</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-select-a-single-case">Example 1: Select a Single Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-select-multiple-cases">Example 2: Select Multiple Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-handle-missing-case-names">Example 3: Handle Missing Case Names</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-case-sensitivity">Example 4: Case Sensitivity</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
   </nav></div>
 

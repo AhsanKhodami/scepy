@@ -1,149 +1,154 @@
-# variable management
+# Variable Management Functions
 
-The `variable_management` module in the SCEPY package provides utility functions to update and manage variable names in single-case experimental data frames (`scdf`). These functions allow users to rename key variables like dependent variable (`dvar`), measurement-time variable (`mvar`), and phase variable (`pvar`) to suit their analysis needs.
+The functions in `variable_management.py` allow users to update variable names in single-case experimental data frames. These utilities ensure consistent naming for dependent variables, measurement time, and phase variables, making data preparation and analysis more straightforward.
 
-## Functions Overview
+---
 
-### **1. `set_vars`**
+## `set_vars`
 
+### Description
+The `set_vars` function updates the variable names in a single-case data frame (`scdf`). It renames the `values`, `mt`, and `phase` columns to the specified dependent variable (`dvar`), measurement time (`mvar`), and phase variable (`pvar`), respectively.
+
+### Parameters
+- `data` (DataFrame): A pandas DataFrame containing single-case data.
+- `dvar` (str): The name of the dependent variable.
+- `mvar` (str): The name of the measurement-time variable.
+- `pvar` (str): The name of the phase variable.
+
+### Returns
+- `DataFrame`: A new DataFrame with updated column names.
+
+### Example
 ```python
-set_vars(data, dvar, mvar, pvar)
-```
+import pandas as pd
+from scepy.variable_management import set_vars
 
-#### Description:
-Sets the analysis variables (`dvar`, `mvar`, `pvar`) in a single-case data frame.
+data = pd.DataFrame({
+    "values": [10, 15, 20],
+    "mt": [1, 2, 3],
+    "phase": ["A", "A", "B"]
+})
 
-#### Parameters:
-- `data` (`DataFrame`): A single-case data frame.
-- `dvar` (`str`): Name of the dependent variable.
-- `mvar` (`str`): Name of the measurement-time variable.
-- `pvar` (`str`): Name of the phase variable.
-
-#### Returns:
-- `DataFrame`: The updated data frame with the specified variable names.
-
-#### Example:
-```python
-from scepy import sced, variable_management
-
-# Original data frame
-data = sced(data={"values": [10, 15, 20], "mt": [1, 2, 3], "phase": ["A", "A", "B"]}).df
-
-# Update variable names
-updated_data = variable_management.set_vars(data, dvar="observations", mvar="time", pvar="condition")
+updated_data = set_vars(data, dvar="measurements", mvar="time", pvar="stage")
 print(updated_data)
 ```
 
-**Output:**
+**Output**:
 ```
-   observations  time condition
-0            10     1        A
-1            15     2        A
-2            20     3        B
+   measurements  time stage
+0            10     1     A
+1            15     2     A
+2            20     3     B
 ```
 
+---
 
+## `set_dvar`
 
-### **2. `set_dvar`**
+### Description
+The `set_dvar` function updates the name of the dependent variable (`dvar`) in a single-case data frame.
 
+### Parameters
+- `data` (DataFrame): A pandas DataFrame containing single-case data.
+- `dvar` (str): The name of the dependent variable.
+
+### Returns
+- `DataFrame`: A new DataFrame with the updated dependent variable name.
+
+### Example
 ```python
-set_dvar(data, dvar)
-```
+from scepy.variable_management import set_dvar
 
-#### Description:
-Updates the dependent variable name in the data frame.
+data = pd.DataFrame({
+    "values": [10, 15, 20],
+    "mt": [1, 2, 3],
+    "phase": ["A", "A", "B"]
+})
 
-#### Parameters:
-- `data` (`DataFrame`): A single-case data frame.
-- `dvar` (`str`): The new name for the dependent variable.
-
-#### Returns:
-- `DataFrame`: The updated data frame with the specified dependent variable name.
-
-#### Example:
-```python
-updated_data = variable_management.set_dvar(data, dvar="observations")
+updated_data = set_dvar(data, dvar="measurements")
 print(updated_data)
 ```
 
-
-
-### **3. `set_mvar`**
-
-```python
-set_mvar(data, mvar)
+**Output**:
+```
+   measurements  mt phase
+0            10   1     A
+1            15   2     A
+2            20   3     B
 ```
 
-#### Description:
-Updates the measurement-time variable name in the data frame.
+---
 
-#### Parameters:
-- `data` (`DataFrame`): A single-case data frame.
-- `mvar` (`str`): The new name for the measurement-time variable.
+## `set_mvar`
 
-#### Returns:
-- `DataFrame`: The updated data frame with the specified measurement-time variable name.
+### Description
+The `set_mvar` function updates the name of the measurement-time variable (`mvar`) in a single-case data frame.
 
-#### Example:
+### Parameters
+- `data` (DataFrame): A pandas DataFrame containing single-case data.
+- `mvar` (str): The name of the measurement-time variable.
+
+### Returns
+- `DataFrame`: A new DataFrame with the updated measurement-time variable name.
+
+### Example
 ```python
-updated_data = variable_management.set_mvar(data, mvar="time")
+from scepy.variable_management import set_mvar
+
+data = pd.DataFrame({
+    "values": [10, 15, 20],
+    "mt": [1, 2, 3],
+    "phase": ["A", "A", "B"]
+})
+
+updated_data = set_mvar(data, mvar="time")
 print(updated_data)
 ```
 
-
-
-### **4. `set_pvar`**
-
-```python
-set_pvar(data, pvar)
+**Output**:
+```
+   values  time phase
+0      10     1     A
+1      15     2     A
+2      20     3     B
 ```
 
-#### Description:
-Updates the phase variable name in the data frame.
+## `set_pvar`
 
-#### Parameters:
-- `data` (`DataFrame`): A single-case data frame.
-- `pvar` (`str`): The new name for the phase variable.
+### Description
+The `set_pvar` function updates the name of the phase variable (`pvar`) in a single-case data frame.
 
-#### Returns:
-- `DataFrame`: The updated data frame with the specified phase variable name.
+### Parameters
+- `data` (DataFrame): A pandas DataFrame containing single-case data.
+- `pvar` (str): The name of the phase variable.
 
-#### Example:
+### Returns
+- `DataFrame`: A new DataFrame with the updated phase variable name.
+
+### Example
 ```python
-updated_data = variable_management.set_pvar(data, pvar="condition")
+from scepy.variable_management import set_pvar
+
+data = pd.DataFrame({
+    "values": [10, 15, 20],
+    "mt": [1, 2, 3],
+    "phase": ["A", "A", "B"]
+})
+
+updated_data = set_pvar(data, pvar="stage")
 print(updated_data)
 ```
 
+**Output**:
+```
+   values  mt stage
+0      10   1     A
+1      15   2     A
+2      20   3     B
+```
 
 
 ## Notes
-
-- The original column names (`values`, `mt`, `phase`) are replaced by the specified names.
-- Use these utilities to align your data frame's variable names with your analysis or reporting requirements.
-
-
-## Integration with SCEPY
-
-This module integrates smoothly with the rest of the SCEPY package. For example, when creating a `sced` instance, you can directly use the updated data frame:
-
-```python
-from scepy import sced, variable_management
-
-# Original data frame
-data = sced(data={"values": [10, 15, 20], "mt": [1, 2, 3], "phase": ["A", "A", "B"]}).df
-
-# Update variable names
-updated_data = variable_management.set_vars(data, dvar="observations", mvar="time", pvar="condition")
-
-# Use the updated data in a new sced instance
-updated_case = sced(data=updated_data)
-print(updated_case.df)
-```
-
-**Output:**
-```
-   observations  time condition
-0            10     1        A
-1            15     2        A
-2            20     3        B
-```
+- All functions create a copy of the input DataFrame and return a modified version, leaving the original DataFrame unchanged.
+- Column names are updated only if they match `values`, `mt`, or `phase`. If the DataFrame does not contain these columns, no changes will be made.
+- These functions streamline the process of renaming columns in single-case experimental datasets, ensuring consistency across analyses.
